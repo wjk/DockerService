@@ -10,7 +10,18 @@
 		1F78BDCB23830DF200F38B52 /* CommandLineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 1F78BDCA23830DF200F38B52 /* CommandLineExtensions */; };
 		1F78BDD023830EE300F38B52 /* SwiftCLI in Frameworks */ = {isa = PBXBuildFile; productRef = 1F78BDCF23830EE300F38B52 /* SwiftCLI */; };
 		1F9D558623832C3000B81967 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D558423832C3000B81967 /* main.swift */; };
+		1F9D559223832CA300B81967 /* docker-machine-launcher in Copy Launcher */ = {isa = PBXBuildFile; fileRef = 1F529FA923830D3800DAD0CF /* docker-machine-launcher */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F9D559323832CA700B81967 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F529FA123830D3700DAD0CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F529FA823830D3800DAD0CF;
+			remoteInfo = "docker-machine-launcher";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		1F529FA723830D3800DAD0CF /* CopyFiles */ = {
@@ -21,6 +32,17 @@
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		1F9D559123832C9500B81967 /* Copy Launcher */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/MacOS;
+			dstSubfolderSpec = 1;
+			files = (
+				1F9D559223832CA300B81967 /* docker-machine-launcher in Copy Launcher */,
+			);
+			name = "Copy Launcher";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -116,10 +138,12 @@
 				1F9D558723832C5800B81967 /* Sources */,
 				1F9D558823832C5800B81967 /* Frameworks */,
 				1F9D558923832C5800B81967 /* Resources */,
+				1F9D559123832C9500B81967 /* Copy Launcher */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1F9D559423832CA700B81967 /* PBXTargetDependency */,
 			);
 			name = DockerService;
 			productName = DockerService;
@@ -195,6 +219,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F9D559423832CA700B81967 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F529FA823830D3800DAD0CF /* docker-machine-launcher */;
+			targetProxy = 1F9D559323832CA700B81967 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1F529FAE23830D3800DAD0CF /* Debug */ = {
