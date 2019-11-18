@@ -25,6 +25,9 @@
 		1F78BDD023830EE300F38B52 /* SwiftCLI in Frameworks */ = {isa = PBXBuildFile; productRef = 1F78BDCF23830EE300F38B52 /* SwiftCLI */; };
 		1F9D558623832C3000B81967 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D558423832C3000B81967 /* main.swift */; };
 		1F9D559223832CA300B81967 /* docker-machine-launcher in Copy Launcher */ = {isa = PBXBuildFile; fileRef = 1F529FA923830D3800DAD0CF /* docker-machine-launcher */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1F9D55AE238332E100B81967 /* docker in Copy Prefix Binaries */ = {isa = PBXBuildFile; fileRef = 1F9D55AC238332C100B81967 /* docker */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1F9D55AF238332E100B81967 /* docker-machine in Copy Prefix Binaries */ = {isa = PBXBuildFile; fileRef = 1F9D55AA238332C100B81967 /* docker-machine */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1F9D55B0238332E100B81967 /* docker-machine-driver-xhyve in Copy Prefix Binaries */ = {isa = PBXBuildFile; fileRef = 1F9D55A8238332C100B81967 /* docker-machine-driver-xhyve */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,19 @@
 			name = "Copy Launcher";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1F9D55AD238332D600B81967 /* Copy Prefix Binaries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Prefix;
+			dstSubfolderSpec = 1;
+			files = (
+				1F9D55AE238332E100B81967 /* docker in Copy Prefix Binaries */,
+				1F9D55AF238332E100B81967 /* docker-machine in Copy Prefix Binaries */,
+				1F9D55B0238332E100B81967 /* docker-machine-driver-xhyve in Copy Prefix Binaries */,
+			);
+			name = "Copy Prefix Binaries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +89,9 @@
 		1F9D558B23832C5800B81967 /* DockerService.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DockerService.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9D558D23832C5900B81967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F9D559623832D2300B81967 /* ditto-components.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "ditto-components.sh"; sourceTree = "<group>"; };
+		1F9D55A8238332C100B81967 /* docker-machine-driver-xhyve */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = "docker-machine-driver-xhyve"; path = "docker-machine-driver-xhyve/docker-machine-driver-xhyve"; sourceTree = "<group>"; };
+		1F9D55AA238332C100B81967 /* docker-machine */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = "docker-machine"; path = "docker-machine/docker-machine"; sourceTree = "<group>"; };
+		1F9D55AC238332C100B81967 /* docker */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = docker; path = docker/docker; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +161,9 @@
 		1F9D559723832DD600B81967 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				1F9D55AC238332C100B81967 /* docker */,
+				1F9D55AA238332C100B81967 /* docker-machine */,
+				1F9D55A8238332C100B81967 /* docker-machine-driver-xhyve */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -178,6 +200,7 @@
 				1F9D558823832C5800B81967 /* Frameworks */,
 				1F9D558923832C5800B81967 /* Resources */,
 				1F9D559123832C9500B81967 /* Copy Launcher */,
+				1F9D55AD238332D600B81967 /* Copy Prefix Binaries */,
 			);
 			buildRules = (
 			);
