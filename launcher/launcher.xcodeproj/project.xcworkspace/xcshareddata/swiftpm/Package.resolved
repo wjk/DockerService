@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftUtilities",
+        "repositoryURL": "https://github.com/wjk/SwiftUtilities",
+        "state": {
+          "branch": null,
+          "revision": "c7db197b5d4ad928ce0f386f528d46ea58ea23ec",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
