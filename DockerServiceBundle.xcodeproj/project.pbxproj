@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F78BDCB23830DF200F38B52 /* CommandLineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 1F78BDCA23830DF200F38B52 /* CommandLineExtensions */; };
-		1F78BDCD23830E1500F38B52 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78BDCC23830E1500F38B52 /* main.swift */; };
 		1F78BDD023830EE300F38B52 /* SwiftCLI in Frameworks */ = {isa = PBXBuildFile; productRef = 1F78BDCF23830EE300F38B52 /* SwiftCLI */; };
+		1F9D558623832C3000B81967 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D558423832C3000B81967 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +26,7 @@
 
 /* Begin PBXFileReference section */
 		1F529FA923830D3800DAD0CF /* docker-machine-launcher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "docker-machine-launcher"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F78BDCC23830E1500F38B52 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1F9D558423832C3000B81967 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +45,7 @@
 		1F529FA023830D3700DAD0CF = {
 			isa = PBXGroup;
 			children = (
-				1F78BDCC23830E1500F38B52 /* main.swift */,
+				1F9D558323832C3000B81967 /* launcher */,
 				1F529FAA23830D3800DAD0CF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +56,14 @@
 				1F529FA923830D3800DAD0CF /* docker-machine-launcher */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1F9D558323832C3000B81967 /* launcher */ = {
+			isa = PBXGroup;
+			children = (
+				1F9D558423832C3000B81967 /* main.swift */,
+			);
+			path = launcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,7 +106,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "launcher" */;
+			buildConfigurationList = 1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "DockerServiceBundle" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -125,7 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F78BDCD23830E1500F38B52 /* main.swift in Sources */,
+				1F9D558623832C3000B81967 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +291,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "launcher" */ = {
+		1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "DockerServiceBundle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F529FAE23830D3800DAD0CF /* Debug */,
