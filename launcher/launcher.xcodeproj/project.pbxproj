@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F78BDCB23830DF200F38B52 /* CommandLineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 1F78BDCA23830DF200F38B52 /* CommandLineExtensions */; };
 		1F78BDCD23830E1500F38B52 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F78BDCC23830E1500F38B52 /* main.swift */; };
+		1F78BDD023830EE300F38B52 /* SwiftCLI in Frameworks */ = {isa = PBXBuildFile; productRef = 1F78BDCF23830EE300F38B52 /* SwiftCLI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F78BDCB23830DF200F38B52 /* CommandLineExtensions in Frameworks */,
+				1F78BDD023830EE300F38B52 /* SwiftCLI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +76,7 @@
 			name = "docker-machine-launcher";
 			packageProductDependencies = (
 				1F78BDCA23830DF200F38B52 /* CommandLineExtensions */,
+				1F78BDCF23830EE300F38B52 /* SwiftCLI */,
 			);
 			productName = "docker-machine-launcher";
 			productReference = 1F529FA923830D3800DAD0CF /* docker-machine-launcher */;
@@ -106,6 +109,7 @@
 			mainGroup = 1F529FA023830D3700DAD0CF;
 			packageReferences = (
 				1F78BDC923830DF200F38B52 /* XCRemoteSwiftPackageReference "SwiftUtilities" */,
+				1F78BDCE23830EE300F38B52 /* XCRemoteSwiftPackageReference "SwiftCLI" */,
 			);
 			productRefGroup = 1F529FAA23830D3800DAD0CF /* Products */;
 			projectDirPath = "";
@@ -308,6 +312,14 @@
 				revision = c7db197b5d4ad928ce0f386f528d46ea58ea23ec;
 			};
 		};
+		1F78BDCE23830EE300F38B52 /* XCRemoteSwiftPackageReference "SwiftCLI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jakeheis/SwiftCLI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -315,6 +327,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1F78BDC923830DF200F38B52 /* XCRemoteSwiftPackageReference "SwiftUtilities" */;
 			productName = CommandLineExtensions;
+		};
+		1F78BDCF23830EE300F38B52 /* SwiftCLI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F78BDCE23830EE300F38B52 /* XCRemoteSwiftPackageReference "SwiftCLI" */;
+			productName = SwiftCLI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
