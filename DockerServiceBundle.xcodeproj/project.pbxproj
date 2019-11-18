@@ -6,6 +6,20 @@
 	objectVersion = 52;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		1F9D559823832DFE00B81967 /* Homebrew Dependencies */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1F9D559923832DFE00B81967 /* Build configuration list for PBXAggregateTarget "Homebrew Dependencies" */;
+			buildPhases = (
+				1F9D559C23832E0100B81967 /* Ditto Dependencies */,
+			);
+			dependencies = (
+			);
+			name = "Homebrew Dependencies";
+			productName = "Homebrew Dependencies";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1F78BDCB23830DF200F38B52 /* CommandLineExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 1F78BDCA23830DF200F38B52 /* CommandLineExtensions */; };
 		1F78BDD023830EE300F38B52 /* SwiftCLI in Frameworks */ = {isa = PBXBuildFile; productRef = 1F78BDCF23830EE300F38B52 /* SwiftCLI */; };
@@ -20,6 +34,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1F529FA823830D3800DAD0CF;
 			remoteInfo = "docker-machine-launcher";
+		};
+		1F9D559D23832E5100B81967 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F529FA123830D3700DAD0CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F9D559823832DFE00B81967;
+			remoteInfo = "Homebrew Dependencies";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -161,6 +182,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1F9D559E23832E5100B81967 /* PBXTargetDependency */,
 				1F9D559423832CA700B81967 /* PBXTargetDependency */,
 			);
 			name = DockerService;
@@ -185,6 +207,9 @@
 					1F9D558A23832C5800B81967 = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
+					1F9D559823832DFE00B81967 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
 				};
 			};
 			buildConfigurationList = 1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "DockerServiceBundle" */;
@@ -206,6 +231,7 @@
 			targets = (
 				1F529FA823830D3800DAD0CF /* docker-machine-launcher */,
 				1F9D558A23832C5800B81967 /* DockerService */,
+				1F9D559823832DFE00B81967 /* Homebrew Dependencies */,
 			);
 		};
 /* End PBXProject section */
@@ -219,6 +245,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F9D559C23832E0100B81967 /* Ditto Dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				/usr/local/opt/docker/INSTALL_RECEIPT.json,
+				"/usr/local/opt/docker-machine/INSTALL_RECEIPT.json",
+				"/usr/local/opt/docker-machine-driver-xhyve/INSTALL_RECEIPT.json",
+			);
+			name = "Ditto Dependencies";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/components/docker/INSTALL_RECEIPT.json",
+				"$(SRCROOT)/components/docker-machine/INSTALL_RECEIPT.json",
+				"$(SRCROOT)/components/docker-machine-driver-xhyve/INSTALL_RECEIPT.json",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = ". \"${SRCROOT}/xcodescripts/ditto-components.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F529FA523830D3800DAD0CF /* Sources */ = {
@@ -243,6 +297,11 @@
 			isa = PBXTargetDependency;
 			target = 1F529FA823830D3800DAD0CF /* docker-machine-launcher */;
 			targetProxy = 1F9D559323832CA700B81967 /* PBXContainerItemProxy */;
+		};
+		1F9D559E23832E5100B81967 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F9D559823832DFE00B81967 /* Homebrew Dependencies */;
+			targetProxy = 1F9D559D23832E5100B81967 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -425,6 +484,24 @@
 			};
 			name = Release;
 		};
+		1F9D559A23832DFE00B81967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3P242C9ES5;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1F9D559B23832DFE00B81967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3P242C9ES5;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -451,6 +528,15 @@
 			buildConfigurations = (
 				1F9D558F23832C5900B81967 /* Debug */,
 				1F9D559023832C5900B81967 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F9D559923832DFE00B81967 /* Build configuration list for PBXAggregateTarget "Homebrew Dependencies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F9D559A23832DFE00B81967 /* Debug */,
+				1F9D559B23832DFE00B81967 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
