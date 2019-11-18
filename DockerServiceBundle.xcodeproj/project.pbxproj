@@ -27,6 +27,8 @@
 /* Begin PBXFileReference section */
 		1F529FA923830D3800DAD0CF /* docker-machine-launcher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "docker-machine-launcher"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9D558423832C3000B81967 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1F9D558B23832C5800B81967 /* DockerService.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DockerService.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F9D558D23832C5900B81967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1F9D558823832C5800B81967 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -46,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				1F9D558323832C3000B81967 /* launcher */,
+				1F9D558C23832C5900B81967 /* bundle */,
 				1F529FAA23830D3800DAD0CF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				1F529FA923830D3800DAD0CF /* docker-machine-launcher */,
+				1F9D558B23832C5800B81967 /* DockerService.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +75,14 @@
 				1F9D558423832C3000B81967 /* main.swift */,
 			);
 			path = launcher;
+			sourceTree = "<group>";
+		};
+		1F9D558C23832C5900B81967 /* bundle */ = {
+			isa = PBXGroup;
+			children = (
+				1F9D558D23832C5900B81967 /* Info.plist */,
+			);
+			path = bundle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +109,23 @@
 			productReference = 1F529FA923830D3800DAD0CF /* docker-machine-launcher */;
 			productType = "com.apple.product-type.tool";
 		};
+		1F9D558A23832C5800B81967 /* DockerService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F9D558E23832C5900B81967 /* Build configuration list for PBXNativeTarget "DockerService" */;
+			buildPhases = (
+				1F9D558723832C5800B81967 /* Sources */,
+				1F9D558823832C5800B81967 /* Frameworks */,
+				1F9D558923832C5800B81967 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DockerService;
+			productName = DockerService;
+			productReference = 1F9D558B23832C5800B81967 /* DockerService.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -103,6 +139,9 @@
 					1F529FA823830D3800DAD0CF = {
 						CreatedOnToolsVersion = 11.2.1;
 						LastSwiftMigration = 1120;
+					};
+					1F9D558A23832C5800B81967 = {
+						CreatedOnToolsVersion = 11.2.1;
 					};
 				};
 			};
@@ -124,9 +163,20 @@
 			projectRoot = "";
 			targets = (
 				1F529FA823830D3800DAD0CF /* docker-machine-launcher */,
+				1F9D558A23832C5800B81967 /* DockerService */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F9D558923832C5800B81967 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F529FA523830D3800DAD0CF /* Sources */ = {
@@ -134,6 +184,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F9D558623832C3000B81967 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F9D558723832C5800B81967 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +345,36 @@
 			};
 			name = Release;
 		};
+		1F9D558F23832C5900B81967 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3P242C9ES5;
+				INFOPLIST_FILE = bundle/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = me.sunsol.DockerService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		1F9D559023832C5900B81967 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 3P242C9ES5;
+				INFOPLIST_FILE = bundle/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = me.sunsol.DockerService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -305,6 +392,15 @@
 			buildConfigurations = (
 				1F529FB123830D3800DAD0CF /* Debug */,
 				1F529FB223830D3800DAD0CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F9D558E23832C5900B81967 /* Build configuration list for PBXNativeTarget "DockerService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F9D558F23832C5900B81967 /* Debug */,
+				1F9D559023832C5900B81967 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
