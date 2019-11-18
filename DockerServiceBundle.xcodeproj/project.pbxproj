@@ -51,6 +51,7 @@
 		1F9D558423832C3000B81967 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1F9D558B23832C5800B81967 /* DockerService.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DockerService.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9D558D23832C5900B81967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F9D559623832D2300B81967 /* ditto-components.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "ditto-components.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +77,10 @@
 		1F529FA023830D3700DAD0CF = {
 			isa = PBXGroup;
 			children = (
+				1F9D559723832DD600B81967 /* components */,
 				1F9D558323832C3000B81967 /* launcher */,
 				1F9D558C23832C5900B81967 /* bundle */,
+				1F9D559523832D1400B81967 /* xcodescripts */,
 				1F529FAA23830D3800DAD0CF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +108,21 @@
 				1F9D558D23832C5900B81967 /* Info.plist */,
 			);
 			path = bundle;
+			sourceTree = "<group>";
+		};
+		1F9D559523832D1400B81967 /* xcodescripts */ = {
+			isa = PBXGroup;
+			children = (
+				1F9D559623832D2300B81967 /* ditto-components.sh */,
+			);
+			path = xcodescripts;
+			sourceTree = "<group>";
+		};
+		1F9D559723832DD600B81967 /* components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
