@@ -40,8 +40,7 @@ func main() {
 	setuid(1) // drop privileges, uid_t 1 == daemon user
 
 	let myURL = URL(fileURLWithPath: CommandLine.arguments[0])
-	let executableURL = myURL.deletingLastPathComponent().appendingPathComponent("Prefix")
-		.appendingPathComponent("bin").appendingPathComponent("docker-machine")
+	let executableURL = myURL.deletingLastPathComponent().appendingPathComponent("Public").appendingPathComponent("docker-machine")
 
 	let machineDirectoryURL = URL(fileURLWithPath: "/Library/ServiceData/docker-machine/machines/default")
 	if !FileManager.default.directoryExists(atPath: machineDirectoryURL.path) {
