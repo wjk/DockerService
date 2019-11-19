@@ -56,15 +56,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1F529FA723830D3800DAD0CF /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
 		1F9D559123832C9500B81967 /* Copy Launcher */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,7 +233,6 @@
 			buildPhases = (
 				1F529FA523830D3800DAD0CF /* Sources */,
 				1F529FA623830D3800DAD0CF /* Frameworks */,
-				1F529FA723830D3800DAD0CF /* CopyFiles */,
 			);
 			buildRules = (
 			);
