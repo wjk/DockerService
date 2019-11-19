@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-set -e -x
+set -e
 
 export GOPATH=${DERIVED_FILE_DIR}/go
 mkdir -p $GOPATH
