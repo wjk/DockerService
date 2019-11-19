@@ -21,80 +21,45 @@ extension FileHandle: TextOutputStream {
 	}
 }
 
-// MARK: -
+internal enum Exception: Error {
+	case notRunningAsRoot
+	case commandFailure
+	case message(text: String)
 
-func createLogHandle(forPath path: String) -> FileHandle {
-	let handle = FileHandle(forAppendingAtPath: path)
-	handle.write("\n--- docker-machine service restarted ---\n")
-	return handle
+	var localizedDescription: String {
+		get {
+			switch self {
+			case .notRunningAsRoot:
+				return "This command must be run as root"
+			case .commandFailure:
+				return "External command failure, check docker-machine-launcher.log for details"
+			case .message(let text):
+				return text
+			}
+		}
+	}
 }
 
-func main() {
-	let logger = OSLog(subsystem: "me.sunsol.docker-machine-launcher", category: "")
-	let logPath = "/Library/Logs/docker-machine.log"
+// MARK: -
 
-	if getuid() != 0 {
-		logger.log(type: .error, "docker-machine-launcher must be run as root")
-		print("error: docker-machine-launcher must be run as root", to: &CommandLine.standardError)
-		exit(1)
-	}
-
-	let logHandle = createLogHandle(forPath: logPath)
-	setuid(1) // drop privileges, uid_t 1 == daemon user
-
-	let myURL = URL(fileURLWithPath: CommandLine.arguments[0])
-	let executableURL = myURL.deletingLastPathComponent().appendingPathComponent("Public").appendingPathComponent("docker-machine")
-
-	let machineDirectoryURL = URL(fileURLWithPath: "/Library/ServiceData/docker-machine/machines/default")
-	if !FileManager.default.directoryExists(atPath: machineDirectoryURL.path) {
-		logHandle.write("*** 'default' machine does not exist, running docker-machine create")
-		logger.log(type: .default, "'default' machine does not exist, running docker-machine create...")
-
-		let argv = [
-			"--storage-path", "/Library/ServiceData/docker-machine",
-			"create", "-d", "xhyve", "--xhyve-uuid", "44A05926-6238-43F6-99F2-522951DADF92", "default"
-		]
-
-		let stream = WriteStream.for(fileHandle: logHandle)
-		let task = Task(executable: executableURL.path, arguments: argv, stdout: stream, stderr: stream)
-		let exitCode = task.runSync()
-
-		if exitCode != 0 {
-			logger.log(type: .error, "docker-machine create failed, check %{public}@ for details", logPath)
-			sleep(10) // to prevent launchd from restarting us
-			exit(1)
-		}
-
-		logHandle.write("*** docker-machine create succeeded")
-		logger.log(type: .default, "docker-machine create succeeded")
-	}
-
-	let startArgv = [
-		"--storage-path", "/Library/ServiceData/docker-machine",
-		"start", "default"
-	]
-
-	logger.log(type: .default, "About to call docker-machine start...")
-
-	let stream = WriteStream.for(fileHandle: logHandle)
-	let startTask = Task(executable: executableURL.path, arguments: startArgv, stdout: stream, stderr: stream)
-	let exitCode = startTask.runSync()
-	if exitCode != 0 {
-		logger.log(type: .error, "docker-machine start failed, check %{public}@ for details", logPath)
-		sleep(10) // to prevent launchd from restarting us
-		exit(1)
-	}
-
+func waitForSigterm(logHandle: FileHandle) -> Never {
 	let sigtermSource = DispatchSource.makeSignalSource(signal: SIGTERM)
 	sigtermSource.setEventHandler {
-		logger.log(type: .default, "Calling docker-machine stop...")
+		let log = OSLog(subsystem: "me.sunsol.docker-machine-launcher", category: "Shutdown")
+		log.log(type: .default, "Calling docker-machine stop...")
+
+		let argv0URL = URL(fileURLWithPath: CommandLine.arguments[0])
+		let dockerMachineCommandURL = argv0URL.deletingLastPathComponent()
+			.appendingPathComponent("Public").appendingPathComponent("docker-machine")
 
 		let stopArgv = [
 			"--storage-path", "/Library/ServiceData/docker-machine",
 			"stop", "default"
 		]
 
-		let stopTask = Task(executable: executableURL.path, arguments: stopArgv, stdout: stream, stderr: stream)
+		let stream = WriteStream.for(fileHandle: logHandle)
+		let stopTask = Task(executable: dockerMachineCommandURL.path, arguments: stopArgv,
+							stdout: stream, stderr: stream)
 		stopTask.runAsync()
 		exit(0)
 	}
@@ -102,6 +67,12 @@ func main() {
 	sigtermSource.activate()
 	signal(SIGTERM, SIG_IGN)
 	dispatchMain()
+}
+
+func main() {
+	let handler = CLI(name: "docker-machine-launcher")
+	handler.commands = [CreateMachineCommand(), RunDaemonCommand()]
+	_ = handler.go()
 }
 
 main()

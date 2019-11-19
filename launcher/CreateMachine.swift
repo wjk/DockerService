@@ -7,10 +7,9 @@ internal class CreateMachineCommand: Command {
 	let name = "setup"
 	let shortDescription = "Creates (if necessary) and starts the Docker virtual machine."
 
-	func execute() throws {
+	internal static func createRequiredDirectories() throws {
 		guard getuid() == 0 else {
-			print("error: This command must be run as root", to: &CommandLine.standardError)
-			exit(-1)
+			throw Exception.notRunningAsRoot
 		}
 
 		let log = OSLog(subsystem: "me.sunsol.docker-machine-launcher", category: "Setup")
@@ -38,9 +37,12 @@ internal class CreateMachineCommand: Command {
 			]
 			try fm.setAttributes(attributes, ofItemAtPath: "/Library/ServiceData/Docker/docker-machine")
 		}
+	}
 
-		setuid(1) // drop privileges to 'daemon' user now that our required directories exist
+	internal static func runDockerMachineCreate(logHandle: FileHandle) throws {
+		let log = OSLog(subsystem: "me.sunsol.docker-machine-launcher", category: "CreateMachine")
 
+		let fm = FileManager.default
 		let argv0URL = URL(fileURLWithPath: CommandLine.arguments[0])
 		let dockerMachineCommandURL = argv0URL.deletingLastPathComponent()
 			.appendingPathComponent("Public").appendingPathComponent("docker-machine")
@@ -55,17 +57,30 @@ internal class CreateMachineCommand: Command {
 				"default"
 			]
 
+			let stream = WriteStream.for(fileHandle: logHandle)
 			let creationTask = Task(executable: dockerMachineCommandURL.path, arguments: argv,
-									stdout: WriteStream.stdout, stderr: WriteStream.stderr)
+									stdout: stream, stderr: stream)
 			let exitCode = creationTask.runSync()
 
-			if exitCode == 0 {
-				log.log(type: .default, "docker-machine creation succeeded")
-				exit(0)
-			} else {
-				log.log(type: .error, "docker-machine create failed, details written to standard output")
-				exit(1)
+			guard exitCode == 0 else {
+				throw Exception.message(text: "docker-machine create failed")
 			}
 		}
+	}
+
+	func execute() throws {
+		guard getuid() == 0 else {
+			throw Exception.notRunningAsRoot
+		}
+
+		let logHandle = FileHandle(forAppendingAtPath: "/Library/Logs/docker-machine-launcher.log")
+
+		try CreateMachineCommand.createRequiredDirectories()
+
+		setuid(1) // drop privileges to daemon user
+
+		// docker-machine create leaves the VM running after it is done
+		try CreateMachineCommand.runDockerMachineCreate(logHandle: logHandle)
+		waitForSigterm(logHandle: logHandle)
 	}
 }

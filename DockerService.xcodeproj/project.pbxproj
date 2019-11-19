@@ -28,6 +28,7 @@
 		1F9D55AE238332E100B81967 /* docker in Copy Public Binaries */ = {isa = PBXBuildFile; fileRef = 1F9D55AC238332C100B81967 /* docker */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1F9D55AF238332E100B81967 /* docker-machine in Copy Public Binaries */ = {isa = PBXBuildFile; fileRef = 1F9D55AA238332C100B81967 /* docker-machine */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1F9D55B0238332E100B81967 /* docker-machine-driver-xhyve in Copy Public Binaries */ = {isa = PBXBuildFile; fileRef = 1F9D55A8238332C100B81967 /* docker-machine-driver-xhyve */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1FD12E43238463E300AD7572 /* RunDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD12E42238463E300AD7572 /* RunDaemon.swift */; };
 		1FD3D0A223839316005264A2 /* docker-maachine-driver-xhyve.txt in Copy Licenses */ = {isa = PBXBuildFile; fileRef = 1FD3D09C238392F7005264A2 /* docker-maachine-driver-xhyve.txt */; };
 		1FD3D0A323839316005264A2 /* docker-machine.txt in Copy Licenses */ = {isa = PBXBuildFile; fileRef = 1FD3D09B238392F7005264A2 /* docker-machine.txt */; };
 		1FD3D0A423839316005264A2 /* docker.txt in Copy Licenses */ = {isa = PBXBuildFile; fileRef = 1FD3D09D238392F7005264A2 /* docker.txt */; };
@@ -123,6 +124,7 @@
 		1F9D55A8238332C100B81967 /* docker-machine-driver-xhyve */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = "docker-machine-driver-xhyve"; path = "docker-machine-driver-xhyve/docker-machine-driver-xhyve"; sourceTree = "<group>"; };
 		1F9D55AA238332C100B81967 /* docker-machine */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = "docker-machine"; path = "docker-machine/docker-machine"; sourceTree = "<group>"; };
 		1F9D55AC238332C100B81967 /* docker */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = docker; path = docker/docker; sourceTree = "<group>"; };
+		1FD12E42238463E300AD7572 /* RunDaemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDaemon.swift; sourceTree = "<group>"; };
 		1FD3D09B238392F7005264A2 /* docker-machine.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "docker-machine.txt"; sourceTree = "<group>"; };
 		1FD3D09C238392F7005264A2 /* docker-maachine-driver-xhyve.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "docker-maachine-driver-xhyve.txt"; sourceTree = "<group>"; };
 		1FD3D09D238392F7005264A2 /* docker.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = docker.txt; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				1F9D558423832C3000B81967 /* main.swift */,
 				1FD3D0AF238394CB005264A2 /* CreateMachine.swift */,
+				1FD12E42238463E300AD7572 /* RunDaemon.swift */,
 			);
 			path = launcher;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			files = (
 				1F9D558623832C3000B81967 /* main.swift in Sources */,
 				1FD3D0B0238394CB005264A2 /* CreateMachine.swift in Sources */,
+				1FD12E43238463E300AD7572 /* RunDaemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
