@@ -51,7 +51,7 @@ internal class CreateMachineCommand: Command {
 			let argv = [
 				"--storage-path", "/Library/ServiceData/Docker/docker-machine",
 				"create", "-d", "xhyve", "--xhyve-uuid", "44A05926-6238-43F6-99F2-522951DADF92",
-				"--xhyve-experimental-nfs-share", "/Library/ServiceData/Docker/Shared",
+				"--xhyve-virtio-9p", "/Library/ServiceData/Docker/Shared",
 				"default"
 			]
 
