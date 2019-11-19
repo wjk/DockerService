@@ -31,6 +31,8 @@
 		1FD3D0A223839316005264A2 /* docker-maachine-driver-xhyve.txt in Copy Licenses */ = {isa = PBXBuildFile; fileRef = 1FD3D09C238392F7005264A2 /* docker-maachine-driver-xhyve.txt */; };
 		1FD3D0A323839316005264A2 /* docker-machine.txt in Copy Licenses */ = {isa = PBXBuildFile; fileRef = 1FD3D09B238392F7005264A2 /* docker-machine.txt */; };
 		1FD3D0A423839316005264A2 /* docker.txt in Copy Licenses */ = {isa = PBXBuildFile; fileRef = 1FD3D09D238392F7005264A2 /* docker.txt */; };
+		1FD3D0AC23839401005264A2 /* man1 in Copy Manpages */ = {isa = PBXBuildFile; fileRef = 1FD3D0A7238393E2005264A2 /* man1 */; };
+		1FD3D0AD23839401005264A2 /* man5 in Copy Manpages */ = {isa = PBXBuildFile; fileRef = 1FD3D0A8238393E2005264A2 /* man5 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,18 @@
 			name = "Copy Licenses";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1FD3D0A5238393CB005264A2 /* Copy Manpages */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = man;
+			dstSubfolderSpec = 7;
+			files = (
+				1FD3D0AC23839401005264A2 /* man1 in Copy Manpages */,
+				1FD3D0AD23839401005264A2 /* man5 in Copy Manpages */,
+			);
+			name = "Copy Manpages";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +125,8 @@
 		1FD3D09B238392F7005264A2 /* docker-machine.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "docker-machine.txt"; sourceTree = "<group>"; };
 		1FD3D09C238392F7005264A2 /* docker-maachine-driver-xhyve.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "docker-maachine-driver-xhyve.txt"; sourceTree = "<group>"; };
 		1FD3D09D238392F7005264A2 /* docker.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = docker.txt; sourceTree = "<group>"; };
+		1FD3D0A7238393E2005264A2 /* man1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = man1; sourceTree = "<group>"; };
+		1FD3D0A8238393E2005264A2 /* man5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = man5; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +180,7 @@
 		1F9D558C23832C5900B81967 /* bundle */ = {
 			isa = PBXGroup;
 			children = (
+				1FD3D0AB238393F1005264A2 /* manpages */,
 				1FD3D09A23839286005264A2 /* licenses */,
 				1F9D558D23832C5900B81967 /* Info.plist */,
 			);
@@ -196,6 +213,15 @@
 				1FD3D09D238392F7005264A2 /* docker.txt */,
 			);
 			path = licenses;
+			sourceTree = "<group>";
+		};
+		1FD3D0AB238393F1005264A2 /* manpages */ = {
+			isa = PBXGroup;
+			children = (
+				1FD3D0A7238393E2005264A2 /* man1 */,
+				1FD3D0A8238393E2005264A2 /* man5 */,
+			);
+			name = manpages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +258,7 @@
 				1F9D559123832C9500B81967 /* Copy Launcher */,
 				1F9D55AD238332D600B81967 /* Copy Public Binaries */,
 				1FD3D0A123839305005264A2 /* Copy Licenses */,
+				1FD3D0A5238393CB005264A2 /* Copy Manpages */,
 			);
 			buildRules = (
 			);
@@ -266,7 +293,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "DockerServiceBundle" */;
+			buildConfigurationList = 1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "DockerService" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -559,7 +586,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "DockerServiceBundle" */ = {
+		1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "DockerService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F529FAE23830D3800DAD0CF /* Debug */,
