@@ -44,7 +44,7 @@ internal class CreateMachineCommand: Command {
 
 		let fm = FileManager.default
 		let argv0URL = URL(fileURLWithPath: CommandLine.arguments[0])
-		let dockerMachineCommandURL = argv0URL.deletingLastPathComponent()
+		let dockerMachineCommandURL = argv0URL.deletingLastPathComponent().deletingLastPathComponent()
 			.appendingPathComponent("Public").appendingPathComponent("docker-machine")
 
 		if !fm.directoryExists(atPath: "/Library/ServiceData/Docker/docker-machine/machines/default") {
