@@ -89,7 +89,7 @@ func main() {
 	let handler = CLI(name: "docker-machine-launcher")
 	handler.helpMessageGenerator = DaemonHelpMessageGenerator()
 	handler.commands = [CreateMachineCommand(), RunDaemonCommand()]
-	_ = handler.go()
+	handler.goAndExit()
 }
 
 main()
