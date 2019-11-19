@@ -1,0 +1,17 @@
+diff --git a/xhyve/xhyve.go b/xhyve/xhyve.go
+index c2f90d3..c078892 100644
+--- a/xhyve/xhyve.go
++++ b/xhyve/xhyve.go
+@@ -283,12 +283,6 @@ func (d *Driver) PreCommandCheck() error {
+ 		return fmt.Errorf("%s binary needs root owner and uid. See https://github.com/zchee/docker-machine-driver-xhyve#install", bin.Name())
+ 	}
+ 
+-	// Check of execute user
+-	user := syscall.Getuid()
+-	if user == 0 {
+-		return fmt.Errorf("%s needs to be executed with the privileges of the user. please remove sudo on execute command", bin.Name())
+-	}
+-
+ 	return nil
+ }
+ 

@@ -11,6 +11,7 @@ cd $GOPATH/src/github.com/zchee/docker-machine-driver-xhyve
 
 git checkout -- . # so the patches don't complain that they were already applied
 patch -p1 < ${SRCROOT}/files/xhyve-patches/fix-makefile.patch
+patch -p1 < ${SRCROOT}/files/xhyve-patches/remove-sudo-check.patch
 make build
 
 mkdir -p ${SRCROOT}/components/doker-machine-driver-xhyve
