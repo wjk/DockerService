@@ -9,5 +9,6 @@ at boot time, so that any services contained in Docker containers will also be
 available at boot time. (Docker Desktop requires an interactive user login before
 it will start its copy of the Docker service).
 
-This repository is licensed under MIT. The code installed may be covered under
-other licenses; this README will be updated once I have specifics.
+This repository is licensed under the Mozilla Public License, version 2.0.
+The code installed is covered under other licenses; they can be found in
+the `bundle/licenses` folder.
