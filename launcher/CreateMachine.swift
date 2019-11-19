@@ -13,7 +13,7 @@ internal class CreateMachineCommand: Command {
 			exit(-1)
 		}
 
-		let log = OSLog(subsystem: "me.sunsol.docker-machine-launcher", category: "CreateMachine")
+		let log = OSLog(subsystem: "me.sunsol.docker-machine-launcher", category: "Setup")
 		let fm = FileManager.default
 
 		if !fm.directoryExists(atPath: "/Library/ServiceData/Docker/docker-machine") {
