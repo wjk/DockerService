@@ -10,6 +10,12 @@ extension OSLog {
 }
 
 extension FileHandle: TextOutputStream {
+	public convenience init(forAppendingAtPath path: String) {
+		let fd = open(path, O_CREAT | O_WRONLY | O_APPEND, 0o644)
+		assert(fd != -1, "open(\(path)) failed with errno=\(errno)")
+		self.init(fileDescriptor: fd, closeOnDealloc: true)
+	}
+
 	public func write(_ string: String) {
 		self.write(string.data(using: .utf8)!)
 	}
@@ -18,10 +24,7 @@ extension FileHandle: TextOutputStream {
 // MARK: -
 
 func createLogHandle(forPath path: String) -> FileHandle {
-	let fd = open(path, O_CREAT | O_WRONLY | O_APPEND, 0o644)
-	assert(fd != -1, "open(\(path)) failed with errno=\(errno)")
-
-	let handle = FileHandle(fileDescriptor: fd, closeOnDealloc: true)
+	let handle = FileHandle(forAppendingAtPath: path)
 	handle.write("\n--- docker-machine service restarted ---\n")
 	return handle
 }
