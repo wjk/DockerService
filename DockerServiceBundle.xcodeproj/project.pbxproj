@@ -25,9 +25,9 @@
 		1F78BDD023830EE300F38B52 /* SwiftCLI in Frameworks */ = {isa = PBXBuildFile; productRef = 1F78BDCF23830EE300F38B52 /* SwiftCLI */; };
 		1F9D558623832C3000B81967 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9D558423832C3000B81967 /* main.swift */; };
 		1F9D559223832CA300B81967 /* docker-machine-launcher in Copy Launcher */ = {isa = PBXBuildFile; fileRef = 1F529FA923830D3800DAD0CF /* docker-machine-launcher */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1F9D55AE238332E100B81967 /* docker in Copy Prefix Binaries */ = {isa = PBXBuildFile; fileRef = 1F9D55AC238332C100B81967 /* docker */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1F9D55AF238332E100B81967 /* docker-machine in Copy Prefix Binaries */ = {isa = PBXBuildFile; fileRef = 1F9D55AA238332C100B81967 /* docker-machine */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1F9D55B0238332E100B81967 /* docker-machine-driver-xhyve in Copy Prefix Binaries */ = {isa = PBXBuildFile; fileRef = 1F9D55A8238332C100B81967 /* docker-machine-driver-xhyve */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1F9D55AE238332E100B81967 /* docker in Copy Public Binaries */ = {isa = PBXBuildFile; fileRef = 1F9D55AC238332C100B81967 /* docker */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1F9D55AF238332E100B81967 /* docker-machine in Copy Public Binaries */ = {isa = PBXBuildFile; fileRef = 1F9D55AA238332C100B81967 /* docker-machine */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1F9D55B0238332E100B81967 /* docker-machine-driver-xhyve in Copy Public Binaries */ = {isa = PBXBuildFile; fileRef = 1F9D55A8238332C100B81967 /* docker-machine-driver-xhyve */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,17 +68,17 @@
 			name = "Copy Launcher";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F9D55AD238332D600B81967 /* Copy Prefix Binaries */ = {
+		1F9D55AD238332D600B81967 /* Copy Public Binaries */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = Contents/Prefix;
+			dstPath = Contents/Public;
 			dstSubfolderSpec = 1;
 			files = (
-				1F9D55AE238332E100B81967 /* docker in Copy Prefix Binaries */,
-				1F9D55AF238332E100B81967 /* docker-machine in Copy Prefix Binaries */,
-				1F9D55B0238332E100B81967 /* docker-machine-driver-xhyve in Copy Prefix Binaries */,
+				1F9D55AE238332E100B81967 /* docker in Copy Public Binaries */,
+				1F9D55AF238332E100B81967 /* docker-machine in Copy Public Binaries */,
+				1F9D55B0238332E100B81967 /* docker-machine-driver-xhyve in Copy Public Binaries */,
 			);
-			name = "Copy Prefix Binaries";
+			name = "Copy Public Binaries";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -200,7 +200,7 @@
 				1F9D558823832C5800B81967 /* Frameworks */,
 				1F9D558923832C5800B81967 /* Resources */,
 				1F9D559123832C9500B81967 /* Copy Launcher */,
-				1F9D55AD238332D600B81967 /* Copy Prefix Binaries */,
+				1F9D55AD238332D600B81967 /* Copy Public Binaries */,
 			);
 			buildRules = (
 			);
