@@ -16,7 +16,7 @@ internal class CreateMachineCommand: Command {
 		let fm = FileManager.default
 
 		if !fm.directoryExists(atPath: "/Library/ServiceData/Docker/docker-machine") {
-			log.log(type: .default, "/Library/ServiceData/Docker/docker-machine does not exist, creating it")
+			os_log(.default, log: log, "/Library/ServiceData/Docker/docker-machine does not exist, creating it")
 			try fm.createDirectory(atPath: "/Library/ServiceData/Docker/docker-machine", withIntermediateDirectories: true, attributes: nil)
 
 			let attributes: [FileAttributeKey: Any] = [
@@ -27,7 +27,7 @@ internal class CreateMachineCommand: Command {
 		}
 
 		if !fm.directoryExists(atPath: "/Library/ServiceData/Docker/Shared") {
-			log.log(type: .default, "/Library/ServiceData/Docker/Shared does not exist, creating it")
+			os_log(.default, log: log, "/Library/ServiceData/Docker/Shared does not exist, creating it")
 			try fm.createDirectory(atPath: "/Library/ServiceData/Docker/Shared", withIntermediateDirectories: true, attributes: nil)
 
 			let attributes: [FileAttributeKey: Any] = [
@@ -48,7 +48,7 @@ internal class CreateMachineCommand: Command {
 			.appendingPathComponent("Public").appendingPathComponent("docker-machine")
 
 		if !fm.directoryExists(atPath: "/Library/ServiceData/Docker/docker-machine/machines/default") {
-			log.log(type: .default, "Default Docker machine does not exist, creating it...")
+			os_log(.default, log: log, "Default Docker machine does not exist, creating it...")
 
 			let argv = [
 				"--storage-path", "/Library/ServiceData/Docker/docker-machine",

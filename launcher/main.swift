@@ -3,12 +3,6 @@ import CommandLineExtensions
 import SwiftCLI
 import os.log
 
-extension OSLog {
-	func log(type: OSLogType, _ message: StaticString, _ args: CVarArg...) {
-		os_log(type, log: self, message, args)
-	}
-}
-
 extension FileHandle: TextOutputStream {
 	public convenience init(forAppendingAtPath path: String) {
 		let fd = open(path, O_CREAT | O_WRONLY | O_APPEND, 0o644)
@@ -46,7 +40,7 @@ func waitForSigterm(logHandle: FileHandle) -> Never {
 	let sigtermSource = DispatchSource.makeSignalSource(signal: SIGTERM)
 	sigtermSource.setEventHandler {
 		let log = OSLog(subsystem: "me.sunsol.docker-machine-launcher", category: "Shutdown")
-		log.log(type: .default, "Calling docker-machine stop...")
+		os_log(.default, log: log, "Calling docker-machine stop...")
 
 		let argv0URL = URL(fileURLWithPath: CommandLine.arguments[0])
 		let dockerMachineCommandURL = argv0URL.deletingLastPathComponent()
@@ -84,7 +78,7 @@ class DaemonHelpMessageGenerator: HelpMessageGenerator {
 		}
 
 		let log = OSLog(subsystem: "me.sunsol.docker-machine-launcher", category: "")
-		log.log(type: .error, "Unhandled error: %{public}@", message)
+		os_log(.error, log: log, "Unhandled error: %{public}@", message)
 
 		out.print("unhandled error: \(message)")
 		exit(1)
