@@ -117,7 +117,7 @@
 		1F529FA023830D3700DAD0CF = {
 			isa = PBXGroup;
 			children = (
-				1F9D559723832DD600B81967 /* components */,
+				1F9D559723832DD600B81967 /* resources */,
 				1F9D558323832C3000B81967 /* launcher */,
 				1F9D558C23832C5900B81967 /* bundle */,
 				1F9D559523832D1400B81967 /* xcodescripts */,
@@ -158,14 +158,14 @@
 			path = xcodescripts;
 			sourceTree = "<group>";
 		};
-		1F9D559723832DD600B81967 /* components */ = {
+		1F9D559723832DD600B81967 /* resources */ = {
 			isa = PBXGroup;
 			children = (
 				1F9D55AC238332C100B81967 /* docker */,
 				1F9D55AA238332C100B81967 /* docker-machine */,
 				1F9D55A8238332C100B81967 /* docker-machine-driver-xhyve */,
 			);
-			path = components;
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +235,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "DockerServiceBundle" */;
+			buildConfigurationList = 1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "DockerService" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -528,7 +528,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "DockerServiceBundle" */ = {
+		1F529FA423830D3700DAD0CF /* Build configuration list for PBXProject "DockerService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F529FAE23830D3800DAD0CF /* Debug */,

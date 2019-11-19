@@ -11,9 +11,9 @@ fail () {
 [ -d "/usr/local/opt/docker-machine" ] || fail "docker-machine"
 [ -d "/usr/local/opt/docker-machine-driver-xhyve" ] || fail "docker-machine-driver-xhyve"
 
-ditto "/usr/local/opt/docker/bin/docker" "${SRCROOT}/components"
-ditto "/usr/local/opt/docker-machine/bin/docker-machine" "${SRCROOT}/components"
-ditto "/usr/local/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve" "${SRCROOT}/components"
+ditto "/usr/local/opt/docker/bin/docker" "${SRCROOT}/resources"
+ditto "/usr/local/opt/docker-machine/bin/docker-machine" "${SRCROOT}/resources"
+ditto "/usr/local/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve" "${SRCROOT}/resources"
 
 mkdir -p $DERIVED_FILE_DIR
 touch "${DERIVED_FILE_DIR}/ditto-components.stamp"
