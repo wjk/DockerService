@@ -69,8 +69,31 @@ func waitForSigterm(logHandle: FileHandle) -> Never {
 	dispatchMain()
 }
 
+// MARK: -
+
+class DaemonHelpMessageGenerator: HelpMessageGenerator {
+	func writeUnrecognizedErrorMessage(for error: Error, to out: WritableStream) {
+		let message: String
+
+		// For some reason, this doesn't happen automatically.
+		// I must manually cast to get the correct description out.
+		if let exc = error as? Exception {
+			message = exc.localizedDescription
+		} else {
+			message = error.localizedDescription
+		}
+
+		let log = OSLog(subsystem: "me.sunsol.docker-machine-launcher", category: "")
+		log.log(type: .error, "Unhandled error: %{public}@", message)
+
+		out.print("unhandled error: \(message)")
+		exit(1)
+	}
+}
+
 func main() {
 	let handler = CLI(name: "docker-machine-launcher")
+	handler.helpMessageGenerator = DaemonHelpMessageGenerator()
 	handler.commands = [CreateMachineCommand(), RunDaemonCommand()]
 	_ = handler.go()
 }
