@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		1F9D559823832DFE00B81967 /* Homebrew Dependencies */ = {
+		1F9D559823832DFE00B81967 /* Dependencies */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 1F9D559923832DFE00B81967 /* Build configuration list for PBXAggregateTarget "Homebrew Dependencies" */;
+			buildConfigurationList = 1F9D559923832DFE00B81967 /* Build configuration list for PBXAggregateTarget "Dependencies" */;
 			buildPhases = (
 				1F9D559C23832E0100B81967 /* Ditto Dependencies */,
+				1F4D4B4F2384AF0D00D21F65 /* Build Driver */,
 			);
 			dependencies = (
 			);
-			name = "Homebrew Dependencies";
+			name = Dependencies;
 			productName = "Homebrew Dependencies";
 		};
 /* End PBXAggregateTarget section */
@@ -124,6 +125,7 @@
 		1F9D55A8238332C100B81967 /* docker-machine-driver-xhyve */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = "docker-machine-driver-xhyve"; path = "docker-machine-driver-xhyve/docker-machine-driver-xhyve"; sourceTree = "<group>"; };
 		1F9D55AA238332C100B81967 /* docker-machine */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = "docker-machine"; path = "docker-machine/docker-machine"; sourceTree = "<group>"; };
 		1F9D55AC238332C100B81967 /* docker */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = docker; path = docker/docker; sourceTree = "<group>"; };
+		1FC220B52384AD550061A05D /* build-machine-driver.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "build-machine-driver.sh"; sourceTree = "<group>"; };
 		1FD12E42238463E300AD7572 /* RunDaemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDaemon.swift; sourceTree = "<group>"; };
 		1FD3D09B238392F7005264A2 /* docker-machine.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "docker-machine.txt"; sourceTree = "<group>"; };
 		1FD3D09C238392F7005264A2 /* docker-maachine-driver-xhyve.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "docker-maachine-driver-xhyve.txt"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				1F9D559623832D2300B81967 /* ditto-components.sh */,
+				1FC220B52384AD550061A05D /* build-machine-driver.sh */,
 			);
 			path = xcodescripts;
 			sourceTree = "<group>";
@@ -318,7 +321,7 @@
 			targets = (
 				1F529FA823830D3800DAD0CF /* docker-machine-launcher */,
 				1F9D558A23832C5800B81967 /* DockerService */,
-				1F9D559823832DFE00B81967 /* Homebrew Dependencies */,
+				1F9D559823832DFE00B81967 /* Dependencies */,
 			);
 		};
 /* End PBXProject section */
@@ -334,6 +337,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1F4D4B4F2384AF0D00D21F65 /* Build Driver */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/xcodescripts/build-machine-driver.sh",
+			);
+			name = "Build Driver";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/components/docker-machine-driver-xhyve/docker-machine-driver-xhyve",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = ". ${SRCROOT}/xcodescripts/build-machine-driver.sh\n";
+			showEnvVarsInLog = 0;
+		};
 		1F9D559C23832E0100B81967 /* Ditto Dependencies */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,7 +413,7 @@
 		};
 		1F9D559E23832E5100B81967 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1F9D559823832DFE00B81967 /* Homebrew Dependencies */;
+			target = 1F9D559823832DFE00B81967 /* Dependencies */;
 			targetProxy = 1F9D559D23832E5100B81967 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -621,7 +645,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F9D559923832DFE00B81967 /* Build configuration list for PBXAggregateTarget "Homebrew Dependencies" */ = {
+		1F9D559923832DFE00B81967 /* Build configuration list for PBXAggregateTarget "Dependencies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F9D559A23832DFE00B81967 /* Debug */,

@@ -1,0 +1,30 @@
+diff --git a/Makefile b/Makefile
+index 8216d8f..5cf65b1 100644
+--- a/Makefile
++++ b/Makefile
+@@ -17,7 +17,6 @@ endif
+ # ----------------------------------------------------------------------------
+ # Include makefiles
+ 
+--include mk/color.mk
+ -include mk/lib9p.mk
+ # Include driver debug makefile if $MACHINE_DRIVER_DEBUG=1
+ ifeq ($(MACHINE_DRIVER_DEBUG),1)
+@@ -31,7 +30,7 @@ endif
+ # Build package infomation
+ GITHUB_USER := zchee
+ TOP_PACKAGE_DIR := github.com/${GITHUB_USER}
+-PACKAGE := $(shell basename $(PWD))
++PACKAGE := docker-machine-driver-xhyve
+ OUTPUT := bin/docker-machine-driver-xhyve
+ # Parse "func main()" only '.go' file on current dir
+ # FIXME: Not support main.go
+@@ -41,7 +40,7 @@ MAIN_FILE := $(shell grep "func main\(\)" *.go -l)
+ # ----------------------------------------------------------------------------
+ # Define main commands
+ 
+-CC := $(shell xcrun -f clang)
++CC := xcrun clang
+ LIBTOOL := $(shell xcrun -f libtool)
+ GO_CMD := $(shell which go)
+ GIT_CMD := $(shell which git)
