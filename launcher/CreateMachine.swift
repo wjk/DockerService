@@ -4,8 +4,8 @@ import CommandLineExtensions
 import os.log
 
 internal class CreateMachineCommand: Command {
-	let name = "create-machine"
-	let shortDescription = "Creates the Docker virtual machine if necessary."
+	let name = "setup"
+	let shortDescription = "Creates (if necessary) and starts the Docker virtual machine."
 
 	func execute() throws {
 		guard getuid() == 0 else {
