@@ -35,7 +35,7 @@ internal class CreateMachineCommand: Command {
 				FileAttributeKey.groupOwnerAccountName: "staff",
 				FileAttributeKey.posixPermissions: 0o775
 			]
-			try fm.setAttributes(attributes, ofItemAtPath: "/Library/ServiceData/Docker/docker-machine")
+			try fm.setAttributes(attributes, ofItemAtPath: "/Library/ServiceData/Docker/Shared")
 		}
 	}
 
