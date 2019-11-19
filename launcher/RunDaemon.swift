@@ -22,8 +22,6 @@ internal class RunDaemonCommand: Command {
 		guard fm.directoryExists(atPath: "/Library/ServiceData/Docker/machine/machines/default") else {
 			try CreateMachineCommand.createRequiredDirectories()
 
-			setuid(1) // drop privileges to daemon user
-
 			// docker-machine create leaves the VM running after it is done
 			try CreateMachineCommand.runDockerMachineCreate(logHandle: logHandle)
 			waitForSigterm(logHandle: logHandle)
