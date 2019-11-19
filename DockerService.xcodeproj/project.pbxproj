@@ -33,6 +33,7 @@
 		1FD3D0A423839316005264A2 /* docker.txt in Copy Licenses */ = {isa = PBXBuildFile; fileRef = 1FD3D09D238392F7005264A2 /* docker.txt */; };
 		1FD3D0AC23839401005264A2 /* man1 in Copy Manpages */ = {isa = PBXBuildFile; fileRef = 1FD3D0A7238393E2005264A2 /* man1 */; };
 		1FD3D0AD23839401005264A2 /* man5 in Copy Manpages */ = {isa = PBXBuildFile; fileRef = 1FD3D0A8238393E2005264A2 /* man5 */; };
+		1FD3D0B0238394CB005264A2 /* CreateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD3D0AF238394CB005264A2 /* CreateMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		1FD3D09D238392F7005264A2 /* docker.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = docker.txt; sourceTree = "<group>"; };
 		1FD3D0A7238393E2005264A2 /* man1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = man1; sourceTree = "<group>"; };
 		1FD3D0A8238393E2005264A2 /* man5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = man5; sourceTree = "<group>"; };
+		1FD3D0AF238394CB005264A2 /* CreateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				1F9D558423832C3000B81967 /* main.swift */,
+				1FD3D0AF238394CB005264A2 /* CreateMachine.swift */,
 			);
 			path = launcher;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F9D558623832C3000B81967 /* main.swift in Sources */,
+				1FD3D0B0238394CB005264A2 /* CreateMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
