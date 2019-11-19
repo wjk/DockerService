@@ -47,6 +47,13 @@ internal class CreateMachineCommand: Command {
 		let dockerMachineCommandURL = argv0URL.deletingLastPathComponent().deletingLastPathComponent()
 			.appendingPathComponent("Public").appendingPathComponent("docker-machine")
 
+		guard var path = CommandLine.environment["PATH"] else {
+			fatalError("PATH environment variable doesn't exist, this can't happen")
+		}
+
+		path = path + ":" + dockerMachineCommandURL.deletingLastPathComponent().path
+		CommandLine.environment["PATH"] = path
+
 		if !fm.directoryExists(atPath: "/Library/ServiceData/Docker/docker-machine/machines/default") {
 			os_log(.default, log: log, "Default Docker machine does not exist, creating it...")
 

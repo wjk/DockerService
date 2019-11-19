@@ -27,6 +27,13 @@ internal class RunDaemonCommand: Command {
 			waitForSigterm(logHandle: logHandle)
 		}
 
+		guard var path = CommandLine.environment["PATH"] else {
+			fatalError("PATH environment variable doesn't exist, this can't happen")
+		}
+
+		path = path + ":" + dockerMachineCommandURL.deletingLastPathComponent().path
+		CommandLine.environment["PATH"] = path
+
 		let argv = [ "start", "default" ]
 		let stream = WriteStream.for(fileHandle: logHandle)
 		let task = Task(executable: dockerMachineCommandURL.path, arguments: argv,
