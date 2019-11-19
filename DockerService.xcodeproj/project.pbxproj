@@ -164,6 +164,7 @@
 		1F9D558C23832C5900B81967 /* bundle */ = {
 			isa = PBXGroup;
 			children = (
+				1FD3D09A23839286005264A2 /* licenses */,
 				1F9D558D23832C5900B81967 /* Info.plist */,
 			);
 			path = bundle;
@@ -180,7 +181,6 @@
 		1F9D559723832DD600B81967 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				1FD3D09A23839286005264A2 /* licenses */,
 				1F9D55AC238332C100B81967 /* docker */,
 				1F9D55AA238332C100B81967 /* docker-machine */,
 				1F9D55A8238332C100B81967 /* docker-machine-driver-xhyve */,
