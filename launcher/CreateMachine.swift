@@ -55,9 +55,9 @@ internal class CreateMachineCommand: Command {
 				"default"
 			]
 
-			let task = Task(executable: dockerMachineCommandURL.path, arguments: argv,
-							stdout: WriteStream.stdout, stderr: WriteStream.stderr)
-			let exitCode = task.runSync()
+			let creationTask = Task(executable: dockerMachineCommandURL.path, arguments: argv,
+									stdout: WriteStream.stdout, stderr: WriteStream.stderr)
+			let exitCode = creationTask.runSync()
 
 			if exitCode == 0 {
 				log.log(type: .default, "docker-machine creation succeeded")
