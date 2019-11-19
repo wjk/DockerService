@@ -8,13 +8,8 @@ internal class RunDaemonCommand: Command {
 	let shortDescription = "Runs docker-machine. Inteded to be used with launchd."
 
 	func execute() throws {
-		let log = OSLog(subsystem: "me.sunsol.docker-machine-launcher", category: "Daemon")
-
 		guard getuid() == 0 else {
-			log.log(type: .error, "docker-machine-launcher must be run as root")
-			print("error: This command must be run as root", to: &CommandLine.standardError)
-			sleep(10) // stop launchd from restarting us in a loop
-			exit(-1)
+			throw Exception.notRunningAsRoot
 		}
 
 		let logHandle = FileHandle(forAppendingAtPath: "/Library/Logs/docker-machine-launcher.log")
@@ -41,9 +36,7 @@ internal class RunDaemonCommand: Command {
 
 		let exitCode = task.runSync()
 		guard exitCode == 0 else {
-			log.log(type: .error, "docker-machine start failed")
-			sleep(10) // stop launchd from restarting us in a loop
-			exit(1)
+			throw Exception.commandFailure
 		}
 
 		waitForSigterm(logHandle: logHandle)
