@@ -4,8 +4,13 @@ import SwiftCLI
 import os.log
 
 extension FileHandle: TextOutputStream {
-	public convenience init(forAppendingAtPath path: String) {
-		let fd = open(path, O_CREAT | O_WRONLY | O_APPEND, 0o644)
+	public convenience init(forAppendingAtPath path: String, truncate: Bool = false) {
+		var flags = O_CREAT | O_WRONLY | O_APPEND
+		if truncate {
+			flags |= O_TRUNC
+		}
+
+		let fd = open(path, flags, 0o644)
 		assert(fd != -1, "open(\(path)) failed with errno=\(errno)")
 		self.init(fileDescriptor: fd, closeOnDealloc: true)
 	}
@@ -86,6 +91,9 @@ class DaemonHelpMessageGenerator: HelpMessageGenerator {
 }
 
 func main() {
+	let logFile = FileHandle(forAppendingAtPath: "/Library/Logs/docker-machine-launcher.log", truncate: true)
+	logFile.write("-- docker-machine-launcher restarted--\n\n");
+
 	let handler = CLI(name: "docker-machine-launcher")
 	handler.helpMessageGenerator = DaemonHelpMessageGenerator()
 	handler.commands = [CreateMachineCommand(), RunDaemonCommand()]
