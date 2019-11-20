@@ -20,25 +20,6 @@ extension FileHandle: TextOutputStream {
 	}
 }
 
-internal enum Exception: Error {
-	case notRunningAsRoot
-	case commandFailure
-	case message(text: String)
-
-	var localizedDescription: String {
-		get {
-			switch self {
-			case .notRunningAsRoot:
-				return "This command must be run as root"
-			case .commandFailure:
-				return "External command failure, check docker-machine-launcher.log for details"
-			case .message(let text):
-				return text
-			}
-		}
-	}
-}
-
 // MARK: -
 
 func waitForSigterm(logHandle: FileHandle) -> Never {

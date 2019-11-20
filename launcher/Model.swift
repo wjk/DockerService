@@ -1,5 +1,24 @@
 import Foundation
 
+internal enum Exception: Error {
+	case notRunningAsRoot
+	case commandFailure
+	case message(text: String)
+
+	var localizedDescription: String {
+		get {
+			switch self {
+			case .notRunningAsRoot:
+				return "This command must be run as root"
+			case .commandFailure:
+				return "External command failure, check docker-machine-launcher.log for details"
+			case .message(let text):
+				return text
+			}
+		}
+	}
+}
+
 internal final class MachineConfig: Codable {
 	internal var displayName: String = ""
 	internal var vmService: String = "xhyve"
