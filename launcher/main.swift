@@ -43,7 +43,7 @@ func waitForSigterm(logHandle: FileHandle) -> Never {
 		os_log(.default, log: log, "Calling docker-machine stop...")
 
 		let argv0URL = URL(fileURLWithPath: CommandLine.arguments[0])
-		let dockerMachineCommandURL = argv0URL.deletingLastPathComponent()
+		let dockerMachineCommandURL = argv0URL.deletingLastPathComponent().deletingLastPathComponent()
 			.appendingPathComponent("Public").appendingPathComponent("docker-machine")
 
 		let stopArgv = [
