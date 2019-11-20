@@ -47,7 +47,7 @@ func waitForSigterm(logHandle: FileHandle) -> Never {
 			.appendingPathComponent("Public").appendingPathComponent("docker-machine")
 
 		let stopArgv = [
-			"--storage-path", "/Library/ServiceData/docker-machine",
+			"--storage-path", "/Library/ServiceData/Docker/docker-machine",
 			"stop", "default"
 		]
 
