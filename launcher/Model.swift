@@ -3,6 +3,7 @@ import Foundation
 internal enum Exception: Error {
 	case notRunningAsRoot
 	case commandFailure
+	case machineNotFound(machineId: String)
 	case message(text: String)
 
 	var localizedDescription: String {
@@ -12,6 +13,8 @@ internal enum Exception: Error {
 				return "This command must be run as root"
 			case .commandFailure:
 				return "External command failure, check docker-machine-launcher.log for details"
+			case .machineNotFound(let machineId):
+				return "Docker machine \"\(machineId)\" not found in configuration file"
 			case .message(let text):
 				return text
 			}
