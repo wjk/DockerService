@@ -19,7 +19,7 @@ internal class RunDaemonCommand: Command {
 		let dockerMachineCommandURL = argv0URL.deletingLastPathComponent().deletingLastPathComponent()
 			.appendingPathComponent("Public").appendingPathComponent("docker-machine")
 
-		guard fm.directoryExists(atPath: "/Library/ServiceData/Docker/machine/machines/default") else {
+		guard fm.directoryExists(atPath: "/Library/ServiceData/Docker/docker-machine/machines/default") else {
 			try CreateMachineCommand.createRequiredDirectories()
 
 			// docker-machine create leaves the VM running after it is done
@@ -34,7 +34,10 @@ internal class RunDaemonCommand: Command {
 		path = path + ":" + dockerMachineCommandURL.deletingLastPathComponent().path
 		CommandLine.environment["PATH"] = path
 
-		let argv = [ "start", "default" ]
+		let argv = [
+			"--storage-path", "/Library/ServiceData/Docker/docker-machine",
+			"start", "default"
+		]
 		let stream = WriteStream.for(fileHandle: logHandle)
 		let task = Task(executable: dockerMachineCommandURL.path, arguments: argv,
 						stdout: stream, stderr: stream)
