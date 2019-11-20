@@ -91,8 +91,8 @@ class DaemonHelpMessageGenerator: HelpMessageGenerator {
 }
 
 func main() {
-	let logFile = FileHandle(forAppendingAtPath: "/Library/Logs/docker-machine-launcher.log", truncate: true)
-	logFile.write("-- docker-machine-launcher restarted --\n\n");
+	let logFile = FileHandle(forAppendingAtPath: "/Library/Logs/docker-machine-launcher.log")
+	logFile.write("\n-- docker-machine-launcher started --\n\n");
 
 	let handler = CLI(name: "docker-machine-launcher")
 	handler.helpMessageGenerator = DaemonHelpMessageGenerator()
